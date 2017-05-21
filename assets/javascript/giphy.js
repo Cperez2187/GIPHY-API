@@ -56,7 +56,7 @@ $(document).ready(function() {
 				image.attr('data-still', still);
 				image.attr('data-animated', animated);
 				image.attr('data-state', 'still');
-				image.addClass('searchImage');
+				image.addClass('searchGif');
 				searchDiv.append(p);
 				// Append <img> onto 'searchDiv'...
 				searchDiv.append(image);
@@ -66,14 +66,40 @@ $(document).ready(function() {
 		})
 	})
 
+	// On-click event for clicking on image. Allows pausing and animating gif
+	$(document).on('click', '.searchGif', function() {
+		let state = $(this).attr('data-state');
+		console.log('state: ' + state);
+		console.log (this);
+
+		// If current state is 'still', switch to animate or vice versa
+		if (state === 'still') {
+			$(this).attr('src', $(this).data('animated'));
+			$(this).attr('data-state', 'animated');
+		} else {
+			$(this).attr('src', $(this).data('still'));
+			$(this).attr('data-state', 'still');
+		}
+
+		console.log($(this).data('state'));
+	})
+
+	// On-click event for submit button. Creates new button
 	$('#addSearch').on('click', function() {
 		// Grab input value from 1st input tag
 		let newSearch = $('input').eq(0).val();
-		// Add newSearch into searchArray
-		searchArray.push(newSearch);
 
-		// Re-populate buttons on screen
-		populateButtons(searchArray, 'searchButton', '#buttonsArea');
+		// If button does not already exist
+		if (searchArray.indexOf(newSearch) < 0) {
+			// Add newSearch into searchArray
+			searchArray.push(newSearch);
+
+			// Re-populate buttons on screen
+			populateButtons(searchArray, 'searchButton', '#buttonsArea');
+		}
+
+		// Prevent button from re-loading page
+		return false;
 	})
 });
 
