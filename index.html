@@ -17,28 +17,30 @@
 	<title>Giphy-API</title>
 </head>
 <body>
-	<!-- Location where button are displayed -->
-	<div id="buttonsArea"></div>
 
-	<!-- Form section for adding input and creating button -->
-	<form id="search-form">
-		<div class="input-field inline">
-			<input id="search-input" type="text" class="validate">
-			<label for="search-input">Add Gif Button</label>
-		</div>
-		<!-- Submit button -->
-		<button id="addSearch" class="btn waves-effect waves-light" type="submit" name="action">Submit
-		    <i class="material-icons right">send</i>
-		</button>
-	</form>
+	<div class="container">
+		<!-- Location where button are displayed -->
+		<div id="buttonsArea"></div>
 
-	<!-- Location where gif's will be added and displayed -->
-	<div class="row">
-		<div class="col m3" id="searches"></div>
+		<!-- Form section for adding input and creating button -->
+		<form id="search-form">
+			<div class="input-field inline">
+				<input id="search-input" type="text" class="validate">
+				<label for="search-input">Add Gif Button</label>
+			</div>
+			<!-- Submit button -->
+			<button id="addSearch" class="btn waves-effect waves-light" type="submit" name="action">Submit
+			    <i class="material-icons right">send</i>
+			</button>
+		</form>
+
+		<!-- Location where gif's will be added and displayed -->
+		<div class="row">
+			<div class="col m3" id="searches"></div>
+		</div>	
 	</div>
 	
-
-
+	
 	<!-- Link to JQuery -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<!-- Materialize compiled and minified JavaScript -->

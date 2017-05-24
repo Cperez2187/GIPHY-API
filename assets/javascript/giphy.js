@@ -43,7 +43,7 @@ $(document).ready(function() {
 			
 			// For each gif in the response 
 			response.data.forEach(function(element) {
-				let cardDiv = $('<div class="card">');
+				let cardDiv = $('<div class="card hoverable">');
 				let rating = element.rating;
 				let ratingDiv = $('<div class="card-content">');
 				let p = $('<p>').text('Rating: ' + rating);
