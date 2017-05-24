@@ -99,7 +99,11 @@ $(document).ready(function() {
 	// On-click event for submit button. Creates new button
 	$('#addSearch').on('click', function() {
 		// Grab input value from 1st input tag
-		let newSearch = $('input').eq(0).val();
+		let newSearch = $('#search-input').val().trim();
+
+		if (newSearch === '') {
+			return false;
+		}
 
 		// If button does not already exist
 		if (searchArray.indexOf(newSearch) < 0) {
@@ -110,8 +114,13 @@ $(document).ready(function() {
 			populateButtons(searchArray, 'searchButton', '#buttonsArea');
 		}
 
+		// Clear input fields after button press
+		// $(this).closest('form').find("input[type=text], textarea").val('');
+		$('#search-input').val('');
 		// Prevent button from re-loading page
 		return false;
+
+		
 	})
 });
 
