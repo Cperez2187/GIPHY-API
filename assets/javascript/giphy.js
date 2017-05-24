@@ -16,11 +16,11 @@ $(document).ready(function() {
 
 		// Loop through array and create and append button for each element
 		searchArray.forEach( function(element) {
-			let a = $('<a class="waves-effect waves-light btn-large">');
-			a.addClass(classToAdd);
-			a.attr('data-type', element);
-			a.text(element);
-			$(areaToAddTo).append(a);
+			let gifButton = $('<a class="waves-effect waves-light btn-large">');
+			gifButton.addClass(classToAdd);
+			gifButton.attr('data-type', element);
+			gifButton.text(element);
+			$(areaToAddTo).append(gifButton);
 		});
 	}
 
@@ -43,26 +43,37 @@ $(document).ready(function() {
 			
 			// For each gif in the response 
 			response.data.forEach(function(element) {
-				let searchDiv = $('<div class="search-item">');
+				let cardDiv = $('<div class="card">');
 				let rating = element.rating;
+				let ratingDiv = $('<div class="card-content">');
 				let p = $('<p>').text('Rating: ' + rating);
+				// Append p onto ratingDiv
+				ratingDiv.append(p);
 
 				// Hold 'still' and 'animated' url's of the gif
 				let animated = element.images.fixed_height.url;
 				let still = element.images.fixed_height_still.url;
 
-				// Create <img> div and set attributes
+				// Create div's for image and set attributes
+				let imageDiv = $('<div class="card-image">');
 				let image = $('<img>');
+				
+
+				// Set attributes for image
 				image.attr('src', still);
 				image.attr('data-still', still);
 				image.attr('data-animated', animated);
 				image.attr('data-state', 'still');
 				image.addClass('searchGif');
-				searchDiv.append(p);
-				// Append <img> onto 'searchDiv'...
-				searchDiv.append(image);
-				// ...then append 'searchDiv' onto div with id of 'searches'
-				$('#searches').append(searchDiv);
+
+				// Append image onto imageDiv
+				imageDiv.append(image);
+				// Append imageDiv onto 'cardDiv'
+				cardDiv.append(imageDiv);
+				// Append rating onto 'cardDiv'
+				cardDiv.append(ratingDiv);
+				// ...then append 'cardDiv' onto div with id of 'searches'
+				$('#searches').append(cardDiv);
 			});
 		})
 	})
