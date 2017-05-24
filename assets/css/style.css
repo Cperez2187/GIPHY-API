@@ -2,25 +2,16 @@ body {
 	background-color: #f8f8ff;
 }
 
-button {
-	background-color: teal;
-	margin: 7px 7px 10px 7px;
-	border-radius: 5px;
-	font-size: large;
+.searchButton {
+	margin: 10px;
 }
 
 #search-form {
 	float: right;
 	font-size: 14px;
-	width: 200px;
+	width: 200px; 
 }
 
-#search-input {
-	width: 160px;
-	height: 16px;
-	margin: 8px 0;
-}
-
-#addSearch {
-	font-size: 16px;
+.input-field.inline {
+	margin-left: 0;
 }

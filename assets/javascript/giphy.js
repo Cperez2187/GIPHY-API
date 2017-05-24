@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 		// Loop through array and create and append button for each element
 		searchArray.forEach( function(element) {
-			let a = $('<button>');
+			let a = $('<a class="waves-effect waves-light btn-large">');
 			a.addClass(classToAdd);
 			a.attr('data-type', element);
 			a.text(element);
@@ -41,6 +41,7 @@ $(document).ready(function() {
 			method: 'GET'
 		}).done(function(response) {
 			
+			// For each gif in the response 
 			response.data.forEach(function(element) {
 				let searchDiv = $('<div class="search-item">');
 				let rating = element.rating;
